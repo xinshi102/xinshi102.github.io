@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-08-03T15:29:05.512Z</updated>
+  <updated>2023-09-25T01:18:43.862Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sense</title>
+    <link href="http://example.com/2023/09/25/sense/"/>
+    <id>http://example.com/2023/09/25/sense/</id>
+    <published>2023-09-25T01:12:02.000Z</published>
+    <updated>2023-09-25T01:18:43.862Z</updated>
+    
+    <content type="html"><![CDATA[<p>不是所有行为都有意义，也不是所有做出的改变都意味着什么。我发现自己进入了一个思维误区。认为做什么事情都是要有前提的。我去食堂，我一定要去吃饭，我去操场，就一定要去跑步。我到了哪里，做了什么，就一定会有什么结果发生。</p><p>其实我只需要记住，不是所有发生的事情都会有结果。也不是所有发生后有结果的事情都会与你有关。一个人应该关注的，或者说应该倾注于意识上的只有自己。只有你自己才是最了解自己的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;不是所有行为都有意义，也不是所有做出的改变都意味着什么。我发现自己进入了一个思维误区。认为做什么事情都是要有前提的。我去食堂，我一定要去吃饭，我去操场，就一定要去跑步。我到了哪里，做了什么，就一定会有什么结果发生。&lt;/p&gt;
+&lt;p&gt;其实我只需要记住，不是所有发生的事情都会有结</summary>
+      
+    
+    
+    
+    
+    <category term="随想" scheme="http://example.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>黄狗</title>
