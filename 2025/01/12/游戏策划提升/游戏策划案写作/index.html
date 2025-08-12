@@ -8,35 +8,38 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%BE%E7%89%87.webp">
+  <link rel="icon" href="/img/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%BE%E7%89%87.webp">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#1e88e5">
   <meta name="author" content="信使">
   <meta name="keywords" content="游戏策划,游戏设计,数值设计,系统设计,关卡设计">
   
-    <meta name="description" content="深入浅出地介绍游戏数值设计的核心概念和实践方法">
+    <meta name="description" content="创作目的 为什么要设计这个玩法 一句话概括系统核心规则 设计哪些资源如何流通 具体体验流程怎么样  受众 写给谁看，有什么人会看这个策划案  制作人：能对游戏产生的影响、影响的预估（比如大幅提高上线率、小幅降低单日收益等） 主策：新系统&#x2F;玩法&#x2F;功能解决的问题及手段，内部逻辑内容的合理性，与整个项目各模块的关联，实现的时间与排期 其他系统：和自己负责的其他内容有何关联，是否存在冲">
 <meta property="og:type" content="article">
-<meta property="og:title" content="游戏数值设计基础">
-<meta property="og:url" content="http://example.com/2025/08/12/%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="游戏策划案写作指南">
+<meta property="og:url" content="https://xinshi102.github.io/2025/01/12/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%8F%90%E5%8D%87/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%A1%88%E5%86%99%E4%BD%9C/index.html">
 <meta property="og:site_name" content="游戏策划笔记">
-<meta property="og:description" content="深入浅出地介绍游戏数值设计的核心概念和实践方法">
+<meta property="og:description" content="创作目的 为什么要设计这个玩法 一句话概括系统核心规则 设计哪些资源如何流通 具体体验流程怎么样  受众 写给谁看，有什么人会看这个策划案  制作人：能对游戏产生的影响、影响的预估（比如大幅提高上线率、小幅降低单日收益等） 主策：新系统&#x2F;玩法&#x2F;功能解决的问题及手段，内部逻辑内容的合理性，与整个项目各模块的关联，实现的时间与排期 其他系统：和自己负责的其他内容有何关联，是否存在冲">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-12T05:24:38.000Z">
-<meta property="article:modified_time" content="2025-08-12T05:26:27.750Z">
+<meta property="og:image" content="https://xinshi102.github.io/img/%E7%AD%96%E5%88%92%E5%86%99%E4%BD%9C%E5%9B%BE.webp">
+<meta property="article:published_time" content="2025-01-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-12T07:29:11.819Z">
 <meta property="article:author" content="信使">
-<meta property="article:tag" content="数值设计">
 <meta property="article:tag" content="游戏策划">
-<meta property="article:tag" content="基础教程">
+<meta property="article:tag" content="文档写作">
+<meta property="article:tag" content="项目管理">
+<meta property="article:tag" content="游戏开发">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xinshi102.github.io/img/%E7%AD%96%E5%88%92%E5%86%99%E4%BD%9C%E5%9B%BE.webp">
   
   
   
-  <title>游戏数值设计基础 - 游戏策划笔记</title>
+  <title>游戏策划案写作指南 - 游戏策划笔记</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -74,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"xinshi102.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#42a5f5","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -100,7 +103,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>信使</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -196,13 +199,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E7%AD%96%E5%88%92%E5%86%99%E4%BD%9C%E5%9B%BE.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="游戏数值设计基础"></span>
+            <span id="subtitle" data-typed-text="游戏策划案写作指南"></span>
           
         </div>
 
@@ -213,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-12 13:24" pubdate>
-          2025年8月12日 下午
+        <time datetime="2025-01-12 00:00" pubdate>
+          2025年1月12日 凌晨
         </time>
       </span>
     
@@ -225,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          273 字
+          758 字
         
       </span>
     
@@ -236,7 +239,7 @@
         
         
         
-          3 分钟
+          7 分钟
         
       </span>
     
@@ -273,32 +276,71 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">游戏数值设计基础</h1>
+            <h1 id="seo-header">游戏策划案写作指南</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="什么是游戏数值设计？"><a href="#什么是游戏数值设计？" class="headerlink" title="什么是游戏数值设计？"></a>什么是游戏数值设计？</h2><p>游戏数值设计是游戏策划中最核心的技能之一，它决定了玩家在游戏中的成长曲线、难度体验和付费动机。</p>
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="1-数值平衡"><a href="#1-数值平衡" class="headerlink" title="1. 数值平衡"></a>1. 数值平衡</h3><ul>
-<li><strong>横向平衡</strong>：不同选择之间的平衡（如职业、装备）</li>
-<li><strong>纵向平衡</strong>：成长过程中的平衡（如等级、战力）</li>
-</ul>
-<h3 id="2-成长曲线"><a href="#2-成长曲线" class="headerlink" title="2. 成长曲线"></a>2. 成长曲线</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">战力 <span class="hljs-operator">=</span> 基础属性 × 装备系数 × 技能加成 × 其他加成<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-经济系统"><a href="#3-经济系统" class="headerlink" title="3. 经济系统"></a>3. 经济系统</h3><ul>
-<li>产出与消耗的平衡</li>
-<li>通胀控制</li>
-<li>付费点设计</li>
-</ul>
-<h2 id="实践案例"><a href="#实践案例" class="headerlink" title="实践案例"></a>实践案例</h2><p>以 RPG 游戏为例，设计一个简单的战斗力计算公式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 基础战力计算</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">calculatePower</span>(<span class="hljs-params">level, equipment, skills</span>) &#123;<br>    <span class="hljs-keyword">const</span> basePower = level * <span class="hljs-number">100</span>;<br>    <span class="hljs-keyword">const</span> equipmentBonus = equipment.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.<span class="hljs-property">power</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">const</span> skillBonus = skills.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">sum, skill</span>) =&gt;</span> sum + skill.<span class="hljs-property">level</span> * <span class="hljs-number">50</span>, <span class="hljs-number">0</span>);<br>    <br>    <span class="hljs-keyword">return</span> basePower + equipmentBonus + skillBonus;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><ol>
-<li><strong>Excel</strong> - 数值计算和模拟</li>
-<li><strong>Python</strong> - 复杂算法验证</li>
-<li><strong>数据可视化工具</strong> - 曲线分析</li>
+                <h2 id="创作目的"><a href="#创作目的" class="headerlink" title="创作目的"></a>创作目的</h2><ol>
+<li>为什么要设计这个玩法</li>
+<li>一句话概括系统核心规则</li>
+<li>设计哪些资源如何流通</li>
+<li>具体体验流程怎么样</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>数值设计需要在玩家体验和商业目标之间找到平衡点，这需要大量的测试和调优。</p>
+<h2 id="受众"><a href="#受众" class="headerlink" title="受众"></a>受众</h2><ol>
+<li>写给谁看，有什么人会看这个策划案</li>
+<li><ul>
+<li>制作人：能对游戏产生的影响、影响的预估（比如大幅提高上线率、小幅降低单日收益等）</li>
+<li>主策：新系统&#x2F;玩法&#x2F;功能解决的问题及手段，内部逻辑内容的合理性，与整个项目各模块的关联，实现的时间与排期</li>
+<li>其他系统：和自己负责的其他内容有何关联，是否存在冲突</li>
+<li>数值：新增资源、流通方式、投放与收益的预期、与现有数值体系的关联</li>
+<li>剧情：功能实现方式、与现有功能的关联、对现有世界观的影响</li>
+<li>程序：新功能的逻辑、交互方式、需要配置的内容，与现有功能的交互</li>
+<li>美术：新增界面需求、素材需求、交互表现需求</li>
+<li>测试：功能细则、交互细则</li>
+<li>甲方（外包项目）：能不能按时交付、最终报价多少、界面效果，各模块功能是否符合要求，有无缺漏功能</li>
+</ul>
+</li>
+</ol>
+<h2 id="表达方式"><a href="#表达方式" class="headerlink" title="表达方式"></a>表达方式</h2><ol>
+<li>针对性表述</li>
+<li>言简意赅</li>
+<li>格式清晰</li>
+<li>借助工具</li>
+</ol>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ol>
+<li>标题<br>项目名称+系统&#x2F;玩法&#x2F;功能名称（版本号&#x2F;最后修订日期）</li>
+<li>日志<br>记录文档每次变更的内容：操作人、变更内容、时间</li>
+<li>目录<br>逻辑清晰、多层次分点、细致划分</li>
+</ol>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>让每个阅读此文档的人能够快速了解文档内容<br>对系统&#x2F;玩法的核心提炼+期望解决问题&#x2F;达到效果+体验流程的基本概括</p>
+<h2 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h2><ol>
+<li>针对对象：制作人、主策、其它系统、数值、剧情、甲方</li>
+<li>包含内容：<br>该系统&#x2F;玩法&#x2F;规则可实现的各个目标<br>实现目标所用手段<br>该内容的体验基本规划</li>
+</ol>
+<h2 id="基础设定"><a href="#基础设定" class="headerlink" title="基础设定"></a>基础设定</h2><ol>
+<li>针对对象：主策、其他系统、数值、剧情</li>
+<li>包含内容<ul>
+<li>新增的属性、货币、物品等设定</li>
+<li>设计数值内容的基本规划</li>
+<li>与其他系统的关联</li>
+<li>新产生的配置需求</li>
+</ul>
+</li>
+</ol>
+<h2 id="UI交互"><a href="#UI交互" class="headerlink" title="UI交互"></a>UI交互</h2><ol>
+<li>针对对象：程序、UI、主策、测试</li>
+<li>包含内容：界面原型（演示文件&#x2F;图）+交互规则。基本是原型图的展示，如果需要大段文字的展示，多加入颜色标记、加粗、下划线标注重点内容</li>
+</ol>
+<h2 id="规则逻辑"><a href="#规则逻辑" class="headerlink" title="规则逻辑"></a>规则逻辑</h2><ol>
+<li>针对对象：程序、主策、其它系统、测试</li>
+<li>要求：分层次捋清楚系统&#x2F;玩法&#x2F;功能的大大小小的逻辑，确保程序能理解每个功能</li>
+<li>公式：思维导图划分层次+逻辑结构图理清规则+细节规则文本说明</li>
+</ol>
+<h2 id="美术资源"><a href="#美术资源" class="headerlink" title="美术资源"></a>美术资源</h2><ol>
+<li>针对对象：美术</li>
+<li>包含内容：各类资源需求统计+整体类型风格需求</li>
+</ol>
 
                 
               </div>
@@ -317,8 +359,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AD%96%E5%88%92%E5%9F%BA%E7%A1%80/" class="category-chain-item">策划基础</a>
+  <a href="/categories/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/" class="category-chain-item">游戏策划</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C/" class="category-chain-item">文档写作</a>
+  
+  
+
   
 
       </span>
@@ -332,11 +381,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%80%BC%E8%AE%BE%E8%AE%A1/" class="print-no-link">#数值设计</a>
-      
         <a href="/tags/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/" class="print-no-link">#游戏策划</a>
       
-        <a href="/tags/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" class="print-no-link">#基础教程</a>
+        <a href="/tags/%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C/" class="print-no-link">#文档写作</a>
+      
+        <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="print-no-link">#项目管理</a>
+      
+        <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="print-no-link">#游戏开发</a>
       
     </div>
   
@@ -348,8 +399,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>游戏数值设计基础</div>
-      <div>http://example.com/2025/08/12/游戏数值设计基础/</div>
+      <div>游戏策划案写作指南</div>
+      <div>https://xinshi102.github.io/2025/01/12/游戏策划提升/游戏策划案写作/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +412,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月12日</div>
+          <div>2025年1月12日</div>
         </div>
       
       
@@ -393,15 +444,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/01/20/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3%E6%A1%88/woodoku-blast/" title="Woodoku Blast 游戏拆解报告">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Woodoku Blast 游戏拆解报告</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2025/08/12/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -501,7 +552,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+      xinshi--fluid
     </div>
   
   

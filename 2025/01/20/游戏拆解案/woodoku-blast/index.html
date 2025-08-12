@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%BE%E7%89%87.webp">
+  <link rel="icon" href="/img/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%BE%E7%89%87.webp">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#1e88e5">
+  <meta name="author" content="信使">
+  <meta name="keywords" content="游戏策划,游戏设计,数值设计,系统设计,关卡设计">
+  
+    <meta name="description" content="Woodoku Blast 游戏拆解报告1. 游戏概述 游戏名称: Woodoku Blast 游戏类型: IAA休闲益智游戏 核心玩法: 木块拼图 + 消除爆破 游戏模式: 经典模式 + 闯关模式  2. 核心玩法机制分析2.1 基础规则与操作流程游戏目标:  将不规则形状的木块放置到8×8网格中 完成整行或整列时触发消除，获得分数 闯关模式需要达到特定分数或者收集目标，经典模式追求高分  操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Woodoku Blast 游戏拆解报告">
+<meta property="og:url" content="https://xinshi102.github.io/2025/01/20/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3%E6%A1%88/woodoku-blast/index.html">
+<meta property="og:site_name" content="游戏策划笔记">
+<meta property="og:description" content="Woodoku Blast 游戏拆解报告1. 游戏概述 游戏名称: Woodoku Blast 游戏类型: IAA休闲益智游戏 核心玩法: 木块拼图 + 消除爆破 游戏模式: 经典模式 + 闯关模式  2. 核心玩法机制分析2.1 基础规则与操作流程游戏目标:  将不规则形状的木块放置到8×8网格中 完成整行或整列时触发消除，获得分数 闯关模式需要达到特定分数或者收集目标，经典模式追求高分  操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xinshi102.github.io/img/woodoku%E9%85%8D%E5%9B%BE.webp">
+<meta property="article:published_time" content="2025-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-12T07:29:35.535Z">
+<meta property="article:author" content="信使">
+<meta property="article:tag" content="游戏拆解">
+<meta property="article:tag" content="超休闲游戏">
+<meta property="article:tag" content="海外游戏">
+<meta property="article:tag" content="IAA游戏">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xinshi102.github.io/img/woodoku%E9%85%8D%E5%9B%BE.webp">
+  
+  
+  
+  <title>Woodoku Blast 游戏拆解报告 - 游戏策划笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xinshi102.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#42a5f5","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>信使</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/woodoku%E9%85%8D%E5%9B%BE.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Woodoku Blast 游戏拆解报告"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-20 00:00" pubdate>
+          2025年1月20日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Woodoku Blast 游戏拆解报告</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Woodoku-Blast-游戏拆解报告"><a href="#Woodoku-Blast-游戏拆解报告" class="headerlink" title="Woodoku Blast 游戏拆解报告"></a>Woodoku Blast 游戏拆解报告</h1><h2 id="1-游戏概述"><a href="#1-游戏概述" class="headerlink" title="1. 游戏概述"></a>1. 游戏概述</h2><ul>
+<li><strong>游戏名称</strong>: Woodoku Blast</li>
+<li><strong>游戏类型</strong>: IAA休闲益智游戏</li>
+<li><strong>核心玩法</strong>: 木块拼图 + 消除爆破</li>
+<li><strong>游戏模式</strong>: 经典模式 + 闯关模式</li>
+</ul>
+<h2 id="2-核心玩法机制分析"><a href="#2-核心玩法机制分析" class="headerlink" title="2. 核心玩法机制分析"></a>2. 核心玩法机制分析</h2><h3 id="2-1-基础规则与操作流程"><a href="#2-1-基础规则与操作流程" class="headerlink" title="2.1 基础规则与操作流程"></a>2.1 基础规则与操作流程</h3><p><strong>游戏目标</strong>:</p>
+<ul>
+<li>将不规则形状的木块放置到8×8网格中</li>
+<li>完成整行或整列时触发消除，获得分数</li>
+<li>闯关模式需要达到特定分数或者收集目标，经典模式追求高分</li>
+</ul>
+<p><strong>操作循环</strong>:</p>
+<ol>
+<li><strong>木块选择</strong>: 底部提供3个不同形状的木块可供选择</li>
+<li><strong>拖拽放置</strong>: 将木块拖拽到网格合适位置</li>
+<li><strong>消除触发</strong>: 完成行列时自动消除并计分</li>
+<li><strong>循环继续</strong>: 放置完3个木块后刷新新的木块组合</li>
+</ol>
+<h3 id="2-2-双模式设计分析"><a href="#2-2-双模式设计分析" class="headerlink" title="2.2 双模式设计分析"></a>2.2 双模式设计分析</h3><p><strong>经典模式（PLAY CLASSIC）</strong>:</p>
+<ul>
+<li><strong>无限续局</strong>: 只要能放置木块就可以继续游戏</li>
+<li><strong>高分追求</strong>: 以分数为唯一目标，满足竞技需求</li>
+<li><strong>策略深度</strong>: 需要长远规划，平衡当前收益与未来空间</li>
+<li><strong>失败条件</strong>: 当存在木块都无法放置到网格中时游戏结束</li>
+</ul>
+<p><strong>闯关模式（关卡制）</strong>:</p>
+<ul>
+<li><strong>目标导向</strong>: 每关有明确的分数目标或者收集目标</li>
+<li><strong>渐进难度</strong>: 关卡数显示了明确的进度递增</li>
+<li><strong>收集元素</strong>: 通过完成关卡解锁风景拼图</li>
+</ul>
+<h3 id="2-3-游戏核心机制"><a href="#2-3-游戏核心机制" class="headerlink" title="2.3 游戏核心机制"></a>2.3 游戏核心机制</h3><p><strong>空间管理策略</strong>:</p>
+<ul>
+<li><strong>无时间压力</strong>: 不同于传统俄罗斯方块，玩家可以充分思考每一步操作</li>
+<li><strong>木块约束性</strong>: 木块形状固定不可旋转，增加了放置的约束性</li>
+<li><strong>双向消除</strong>: 需要同时考虑行消除和列消除的可能性，提升难度</li>
+<li><strong>空间规划</strong>: 玩家需要长远规划，平衡当前收益与未来空间利用</li>
+</ul>
+<p><strong>与传统消除游戏的差异化</strong>:</p>
+<ul>
+<li><strong>约束创新</strong>: 固定形状的木块增加了放置挑战，但降低了操作复杂度</li>
+<li><strong>双重满足</strong>: 行列消除的双重机制提供更多的消除机会和策略选择</li>
+</ul>
+<h2 id="3-视觉设计分析"><a href="#3-视觉设计分析" class="headerlink" title="3. 视觉设计分析"></a>3. 视觉设计分析</h2><h3 id="3-1-美术风格定位"><a href="#3-1-美术风格定位" class="headerlink" title="3.1 美术风格定位"></a>3.1 美术风格定位</h3><p><strong>木质温馨风格</strong>:</p>
+<ul>
+<li>木块采用温暖的金黄色木质纹理</li>
+<li>网格背景使用深蓝色，形成温暖与冷静的对比</li>
+<li>整体色调偏暖，符合休闲游戏的放松定位</li>
+</ul>
+<h3 id="3-2-UI-UX设计亮点"><a href="#3-2-UI-UX设计亮点" class="headerlink" title="3.2 UI&#x2F;UX设计亮点"></a>3.2 UI&#x2F;UX设计亮点</h3><p><strong>信息层级清晰</strong>:</p>
+<ul>
+<li>顶部分数显示突出，给予玩家明确的进度反馈</li>
+<li>底部木块区域独立，避免与游戏区域混淆</li>
+<li>按钮设计采用圆角矩形，符合现代移动端简洁审美</li>
+</ul>
+<p><strong>视觉引导设计</strong>:</p>
+<ul>
+<li>木块带有高光效果，暗示可拖拽操作</li>
+<li>网格线条清晰但不抢夺注意力</li>
+<li>消除区域会有特殊的视觉反馈</li>
+</ul>
+<h2 id="4-游戏系统设计"><a href="#4-游戏系统设计" class="headerlink" title="4. 游戏系统设计"></a>4. 游戏系统设计</h2><h3 id="4-1-关卡系统架构"><a href="#4-1-关卡系统架构" class="headerlink" title="4.1 关卡系统架构"></a>4.1 关卡系统架构</h3><p><strong>渐进式难度曲线</strong>:</p>
+<ul>
+<li>关卡编号显示明确的关卡进度</li>
+<li>分数目标随关卡进度逐步提升</li>
+<li>关卡间存在不同的网格预设</li>
+</ul>
+<p><strong>多样化关卡类型设计</strong>:</p>
+<ul>
+<li><strong>分数收集关卡</strong>: 传统的达到目标分数即可通关，考验基础消除技巧</li>
+<li><strong>苹果收集关卡</strong>: 通过消除苹果下方支撑让苹果落地收集<ul>
+<li>苹果悬浮在网格特定位置，需要下方支撑才能保持悬浮</li>
+<li>当下方所有木块被消除后，苹果自动落地并被收集</li>
+<li>顶部显示收集目标数量，增加策略深度</li>
+</ul>
+</li>
+<li><strong>星星收集关卡</strong>: 收集网格中的星星元素</li>
+</ul>
+<p><strong>5关节奏的解锁机制设计</strong>:</p>
+<ul>
+<li><strong>精确的里程碑设计</strong>：每通过5关完成一个完整的热带风景拼图</li>
+<li><strong>渐进式视觉反馈</strong>：在5关过程中拼图逐步显现，营造拼图完整的期待感</li>
+<li><strong>长期目标明确</strong>：6个圆形进度指示器显示完成整个主题包的关卡进度</li>
+</ul>
+<p><strong>解锁机制设计</strong>:</p>
+<ul>
+<li>完成关卡解锁拼图的不同部分</li>
+<li>拼图收集提供长期目标和视觉成就感</li>
+<li>拼图上方的圆形进度指示器显示当前主题包的完成度</li>
+</ul>
+<h3 id="4-3-双轨制系统优势"><a href="#4-3-双轨制系统优势" class="headerlink" title="4.3 双轨制系统优势"></a>4.3 双轨制系统优势</h3><p><strong>满足不同用户需求</strong>:</p>
+<ul>
+<li><strong>目标导向用户</strong>: 通过闯关模式获得明确的成就感</li>
+<li><strong>休闲娱乐用户</strong>: 通过经典模式享受无压力的放松体验</li>
+<li><strong>竞技用户</strong>: 经典模式的高分挑战满足竞争需求</li>
+</ul>
+<p><strong>延长游戏生命周期</strong>:</p>
+<ul>
+<li>两种模式相互补充，避免单一玩法的疲劳</li>
+<li>闯关模式提供内容更新的可能性</li>
+<li>经典模式保证核心玩法的纯粹性</li>
+</ul>
+<h3 id="4-3-收集系统设计"><a href="#4-3-收集系统设计" class="headerlink" title="4.3 收集系统设计"></a>4.3 收集系统设计</h3><p><strong>拼图收集机制</strong>:</p>
+<ul>
+<li>每个主题包含6个拼图片段</li>
+<li>完成关卡逐步解锁拼图的不同区域</li>
+<li>热带风景的高质量美术提供收集动机</li>
+</ul>
+<p><strong>PUZZLE COLLECTION功能</strong>:</p>
+<ul>
+<li>独立的收集展示界面</li>
+<li>包含多个主题包</li>
+<li>为后续内容更新提供框架支持</li>
+</ul>
+<h2 id="5-用户体验设计分析"><a href="#5-用户体验设计分析" class="headerlink" title="5. 用户体验设计分析"></a>5. 用户体验设计分析</h2><h3 id="5-1-学习曲线优化"><a href="#5-1-学习曲线优化" class="headerlink" title="5.1 学习曲线优化"></a>5.1 学习曲线优化</h3><p><strong>直观的操作设计</strong>:</p>
+<ul>
+<li>拖拽放置是最自然的移动端交互方式</li>
+<li>木块形状一目了然，无需复杂的规则说明</li>
+<li>消除反馈即时明确，玩家快速理解因果关系</li>
+</ul>
+<p><strong>渐进式复杂度</strong>:</p>
+<ul>
+<li>初期木块形状相对简单，便于快速上手</li>
+<li>随着关卡推进，木块形状组合变得更加复杂</li>
+<li>分数目标的递增提供适度的挑战感</li>
+</ul>
+<h3 id="5-2-心流体验设计"><a href="#5-2-心流体验设计" class="headerlink" title="5.2 心流体验设计"></a>5.2 心流体验设计</h3><p><strong>明确的目标设定</strong>:</p>
+<ul>
+<li>闯关模式的分数目标清晰可见</li>
+<li>拼图收集提供视觉化的进度反馈</li>
+<li>关卡编号给予玩家明确的成就感</li>
+</ul>
+<p><strong>适中的挑战难度</strong>:</p>
+<ul>
+<li>无时间限制允许玩家充分思考</li>
+<li>木块形状的约束性提供适度挑战</li>
+<li>双模式设计照顾不同技能水平的玩家</li>
+</ul>
+<h2 id="6-商业化模式分析"><a href="#6-商业化模式分析" class="headerlink" title="6. 商业化模式分析"></a>6. 商业化模式分析</h2><h3 id="6-1-IAA变现策略"><a href="#6-1-IAA变现策略" class="headerlink" title="6.1 IAA变现策略"></a>6.1 IAA变现策略</h3><p><strong>核心广告策略分析</strong>:</p>
+<p><strong>策略1：关卡结束强制广告</strong></p>
+<ul>
+<li><strong>触发条件</strong>: 联网状态下，某些关卡结束后自动播放</li>
+<li><strong>用户体验考量</strong>: 在自然的游戏节点插入，避免打断游戏流程</li>
+<li><strong>变现效率</strong>: 保证每个关卡都有广告展示机会，最大化eCPM</li>
+<li><strong>网络依赖</strong>: 离线时不播放，避免影响核心游戏体验</li>
+</ul>
+<p><strong>策略2：拼图收集激励广告</strong></p>
+<ul>
+<li><strong>功能机制</strong>: 观看广告可获得额外的拼图片段（+1拼图）</li>
+<li><strong>心理学设计</strong>: 利用玩家对收集完成的渴望，主动观看广告</li>
+<li><strong>价值感营造</strong>: 通过宝箱开启动画（”TAP TO OPEN”）增加仪式感</li>
+</ul>
+<p><strong>广告策略的平衡</strong>:</p>
+<ul>
+<li><strong>强制与激励并存</strong>: 策略1保证基础收入，策略2提升用户参与度</li>
+<li><strong>时机选择精准</strong>: 关卡结束和收集时刻都是用户心理预期的自然节点</li>
+<li><strong>价值交换明确</strong>: 用户清楚知道观看广告能获得什么，降低反感度</li>
+</ul>
+<h3 id="6-1-1-激励视频广告设计"><a href="#6-1-1-激励视频广告设计" class="headerlink" title="6.1.1 激励视频广告设计"></a>6.1.1 激励视频广告设计</h3><p><strong>宝箱系统的心理学应用</strong>:</p>
+<ul>
+<li><strong>视觉吸引力</strong>: 金色宝箱配合闪烁特效，营造”宝藏”的神秘感</li>
+<li><strong>开启仪式感</strong>: “TAP TO OPEN”的交互设计增加参与感和期待感</li>
+<li><strong>奖励可视化</strong>: 拼图片段图标让玩家直观了解奖励内容</li>
+</ul>
+<p><strong>收集进度的广告驱动</strong>:</p>
+<ul>
+<li><strong>进度焦虑</strong>: 当拼图接近完成时，玩家对”+1拼图”的需求最强烈</li>
+<li><strong>即时满足</strong>: 观看广告后立即获得进度，满足玩家的即时需求</li>
+<li><strong>收集完成感</strong>: 通过广告加速收集，让玩家更快体验到完成的成就感</li>
+</ul>
+<p><strong>网络状态智能处理</strong>:</p>
+<ul>
+<li><strong>联网检测</strong>: 只在有网络时显示广告选项，避免用户挫败感</li>
+<li><strong>离线体验</strong>: 离线时仍可正常游戏，不影响核心玩法体验</li>
+<li><strong>无缝切换</strong>: 网络状态变化时，广告功能自动启用&#x2F;禁用</li>
+</ul>
+<h3 id="6-2-用户留存机制"><a href="#6-2-用户留存机制" class="headerlink" title="6.2 用户留存机制"></a>6.2 用户留存机制</h3><p><strong>长期目标设定</strong>:</p>
+<ul>
+<li>拼图收集系统提供长期的收集目标</li>
+<li>多主题包设计保证内容可以持续更新</li>
+<li>关卡进度给予玩家明确的成长感</li>
+</ul>
+<h3 id="6-3-付费转化设计"><a href="#6-3-付费转化设计" class="headerlink" title="6.3 付费转化设计"></a>6.3 付费转化设计</h3><p><strong>低价高频策略</strong>:</p>
+<ul>
+<li>移除广告的订阅服务</li>
+</ul>
+<p><strong>价值感营造</strong>:</p>
+<ul>
+<li>精美的拼图美术提升付费价值感</li>
+<li>独特的主题包装增加收集欲望</li>
+</ul>
+<h3 id="6-4-广告策略的商业价值分析"><a href="#6-4-广告策略的商业价值分析" class="headerlink" title="6.4 广告策略的商业价值分析"></a>6.4 广告策略的商业价值分析</h3><p><strong>收入结构优化</strong>:</p>
+<ul>
+<li><strong>基础收入保障</strong>: 强制广告确保每个活跃用户都贡献广告收入</li>
+<li><strong>高价值用户挖掘</strong>: 激励广告识别出对收集有强烈需求的付费潜力用户</li>
+<li><strong>ARPU提升</strong>: 双重广告策略提升单用户平均收入</li>
+</ul>
+<p><strong>用户分层策略</strong>:</p>
+<ul>
+<li><strong>休闲用户</strong>: 主要通过关卡结束广告贡献收入</li>
+<li><strong>收集用户</strong>: 通过激励广告获得更多拼图，贡献更高价值</li>
+</ul>
+<p><strong>数据驱动的优化空间</strong>:</p>
+<ul>
+<li><strong>广告频率控制</strong>: 用户游戏时长的多少会影响刷新广告的时长和频率</li>
+<li><strong>激励价值调节</strong>: 根据广告时长选项调整拼图奖励的数量，例如拼图+1和+5的时长不一样</li>
+<li><strong>时机优化</strong>: 分析用户在哪个收集进度时最愿意观看激励广告</li>
+</ul>
+<h2 id="7-竞品差异化分析"><a href="#7-竞品差异化分析" class="headerlink" title="7. 竞品差异化分析"></a>7. 竞品差异化分析</h2><h3 id="7-1-vs-传统俄罗斯方块"><a href="#7-1-vs-传统俄罗斯方块" class="headerlink" title="7.1 vs 传统俄罗斯方块"></a>7.1 vs 传统俄罗斯方块</h3><p><strong>创新优势</strong>:</p>
+<ul>
+<li><strong>无时间压力</strong>: 允许玩家充分思考，降低挫败感</li>
+<li><strong>双向消除</strong>: 行列同时消除增加策略深度</li>
+<li><strong>收集元素</strong>: 拼图系统增加长期目标</li>
+</ul>
+<p><strong>目标用户扩展</strong>:</p>
+<ul>
+<li>吸引不喜欢时间压力的休闲玩家</li>
+<li>女性用户对拼图收集的接受度更高</li>
+<li>年龄层覆盖更广，包括中老年用户</li>
+</ul>
+<h3 id="7-2-vs-纯木块拼图游戏"><a href="#7-2-vs-纯木块拼图游戏" class="headerlink" title="7.2 vs 纯木块拼图游戏"></a>7.2 vs 纯木块拼图游戏</h3><p><strong>体验升级</strong>:</p>
+<ul>
+<li><strong>爆破效果</strong>: “Blast”元素增加视觉爽感</li>
+<li><strong>主题包装</strong>: 比纯粹的木块游戏更有情感代入</li>
+<li><strong>双模式</strong>: 满足不同类型玩家的需求</li>
+<li><strong>收集系统</strong>: 增加游戏的长期价值</li>
+</ul>
+<h3 id="7-3-市场定位优势"><a href="#7-3-市场定位优势" class="headerlink" title="7.3 市场定位优势"></a>7.3 市场定位优势</h3><p><strong>蓝海策略</strong>:</p>
+<ul>
+<li>在木块拼图和消除游戏之间找到平衡点</li>
+<li>双模式设计在细分市场中具有差异化优势</li>
+</ul>
+<h2 id="8-数值设计分析"><a href="#8-数值设计分析" class="headerlink" title="8. 数值设计分析"></a>8. 数值设计分析</h2><h3 id="8-1-分数系统设计"><a href="#8-1-分数系统设计" class="headerlink" title="8.1 分数系统设计"></a>8.1 分数系统设计</h3><p><strong>基础分数机制</strong>:</p>
+<ul>
+<li>单行消除：基础分数</li>
+<li>单列消除：基础分数</li>
+<li>同时消除：额外奖励分数</li>
+<li>连续消除：连击奖励机制</li>
+</ul>
+<p><strong>目标分数设定</strong>:</p>
+<ul>
+<li>相对温和的难度曲线</li>
+<li>分数目标的设定需要平衡挑战性和可达成性</li>
+<li>后期关卡可能引入更高的分数要求</li>
+</ul>
+<h3 id="8-1-1-苹果收集的数值平衡"><a href="#8-1-1-苹果收集的数值平衡" class="headerlink" title="8.1.1 苹果收集的数值平衡"></a>8.1.1 苹果收集的数值平衡</h3><p><strong>收集目标设定</strong>:</p>
+<ul>
+<li><strong>苹果的数量设计</strong>: 既不会太少（缺乏挑战），也不会太多（产生挫败感）</li>
+<li><strong>空间分布策略</strong>: 苹果在网格中的位置分布需要精心设计，确保有解但不过于简单</li>
+<li><strong>难度递增曲线</strong>: 后续关卡可能增加苹果数量或改变分布模式</li>
+</ul>
+<h3 id="8-2-木块形状设计"><a href="#8-2-木块形状设计" class="headerlink" title="8.2 木块形状设计"></a>8.2 木块形状设计</h3><p><strong>形状复杂度控制</strong>:</p>
+<ul>
+<li>从截图看到L形、直线形、方块形等经典形状</li>
+<li>形状设计需要平衡放置难度和消除可能性</li>
+<li>3个木块的组合搭配影响游戏节奏</li>
+</ul>
+<p><strong>策略深度营造</strong>:</p>
+<ul>
+<li>不同形状组合创造不同的策略选择</li>
+<li>玩家需要在当前收益和未来布局间做权衡</li>
+<li>形状的随机性增加游戏的重玩价值</li>
+</ul>
+<h2 id="9-技术实现考量"><a href="#9-技术实现考量" class="headerlink" title="9. 技术实现考量"></a>9. 技术实现考量</h2><h3 id="9-1-性能优化"><a href="#9-1-性能优化" class="headerlink" title="9.1 性能优化"></a>9.1 性能优化</h3><p><strong>轻量化设计</strong>:</p>
+<ul>
+<li>2D图形渲染负担较小</li>
+<li>木块数量有限，计算复杂度可控</li>
+<li>适合低端设备运行，扩大用户覆盖面</li>
+</ul>
+<p><strong>网络依赖度</strong>:</p>
+<ul>
+<li>核心玩法可离线进行</li>
+<li>仅在广告播放和数据同步时需要网络</li>
+<li>降低网络环境对用户体验的影响</li>
+</ul>
+<h3 id="9-2-数据统计设计"><a href="#9-2-数据统计设计" class="headerlink" title="9.2 数据统计设计"></a>9.2 数据统计设计</h3><p><strong>关键指标监控</strong>:</p>
+<ul>
+<li>关卡通过率和失败点分析</li>
+<li>不同木块形状的使用频率</li>
+<li>用户在两种模式间的时间分配</li>
+<li>拼图收集的完成率统计</li>
+</ul>
+<p><strong>A&#x2F;B测试支持</strong>:</p>
+<ul>
+<li>分数目标的动态调整</li>
+<li>木块形状组合的优化</li>
+<li>广告插入时机的测试</li>
+<li>UI界面元素的效果对比</li>
+</ul>
+<h2 id="10-游戏存在要素分析"><a href="#10-游戏存在要素分析" class="headerlink" title="10. 游戏存在要素分析"></a>10. 游戏存在要素分析</h2><h3 id="10-1-心理学设计应用"><a href="#10-1-心理学设计应用" class="headerlink" title="10.1 心理学设计应用"></a>10.1 心理学设计应用</h3><p><strong>收集心理满足</strong>:</p>
+<ul>
+<li>拼图收集满足人类的收集本能</li>
+<li>渐进式解锁营造期待感和成就感</li>
+</ul>
+<p><strong>控制感营造</strong>:</p>
+<ul>
+<li>无时间限制给予玩家充分的控制感</li>
+<li>策略选择的多样性增强玩家的主导感</li>
+<li>双模式设计让玩家可以选择适合的挑战水平</li>
+</ul>
+<h3 id="10-2-社交传播潜力"><a href="#10-2-社交传播潜力" class="headerlink" title="10.2 社交传播潜力"></a>10.2 社交传播潜力</h3><ul>
+<li>高分成就可以激发社交媒体分享</li>
+<li>美观的游戏界面适合截图传播</li>
+<li>简单易懂的玩法降低传播门槛</li>
+</ul>
+<h3 id="10-3-长期运营潜力"><a href="#10-3-长期运营潜力" class="headerlink" title="10.3 长期运营潜力"></a>10.3 长期运营潜力</h3><p><strong>内容扩展性</strong>:</p>
+<ul>
+<li>主题包系统支持持续的内容更新</li>
+<li>新的拼图主题可以结合节日和热点</li>
+<li>木块形状可以根据主题进行定制化设计</li>
+</ul>
+<p><strong>社区建设可能</strong>:</p>
+<ul>
+<li>高分排行榜激发竞争</li>
+<li>拼图收集展示满足炫耀需求</li>
+<li>主题投票让用户参与内容创作</li>
+</ul>
+<h2 id="11-对其他项目的设计启发"><a href="#11-对其他项目的设计启发" class="headerlink" title="11. 对其他项目的设计启发"></a>11. 对其他项目的设计启发</h2><h3 id="11-1-苹果收集机制的设计启发"><a href="#11-1-苹果收集机制的设计启发" class="headerlink" title="11.1 苹果收集机制的设计启发"></a>11.1 苹果收集机制的设计启发</h3><p><strong>物理系统在益智游戏中的应用</strong>:</p>
+<ul>
+<li><strong>重力机制</strong>: 引入现实物理规律，降低学习成本，增加直觉性</li>
+<li><strong>间接目标</strong>: 不直接消除目标物，而是通过消除支撑物实现，增加策略层次</li>
+<li><strong>视觉反馈</strong>: 物体落地的瞬间提供成就感和视觉冲击</li>
+</ul>
+<p><strong>应用到其他游戏类型</strong>:</p>
+<ul>
+<li><strong>三消游戏</strong>: 引入需要”挖掘”才能获得的宝石，增加策略深度</li>
+<li><strong>塔防游戏</strong>: 通过破坏地形让敌人掉落陷阱，而非直接攻击</li>
+<li><strong>解谜游戏</strong>: 通过移除障碍让关键物品到达目标位置</li>
+</ul>
+<h3 id="11-2-双模式设计思路"><a href="#11-2-双模式设计思路" class="headerlink" title="11.2 双模式设计思路"></a>11.2 双模式设计思路</h3><p><strong>用户需求细分</strong>:</p>
+<ul>
+<li>不同用户对挑战性需求差异巨大，休闲和挑战的难度需要进行控制</li>
+<li>单一模式难以满足所有用户的期望，两个模式的存在可以提高用户的留存率</li>
+</ul>
+<p><strong>应用到其他游戏类型</strong>:</p>
+<ul>
+<li>卡牌游戏：竞技模式 + 休闲模式</li>
+<li>解谜游戏：限时挑战 + 自由探索</li>
+<li>策略游戏：快速对战 + 深度经营</li>
+</ul>
+<h3 id="11-2-主题包装的重要性"><a href="#11-2-主题包装的重要性" class="headerlink" title="11.2 主题包装的重要性"></a>11.2 主题包装的重要性</h3><p><strong>美术价值</strong>:</p>
+<ul>
+<li>抽象的游戏机制需要具体的主题包装</li>
+<li>主题选择直接影响目标用户群体</li>
+<li>符合玩家审美的主题美术提升付费意愿</li>
+<li>主题收集增加游戏的长期价值</li>
+</ul>
+<h3 id="11-3-广告策略启发"><a href="#11-3-广告策略启发" class="headerlink" title="11.3 广告策略启发"></a>11.3 广告策略启发</h3><p><strong>强制与激励广告的平衡艺术</strong>:</p>
+<ul>
+<li><strong>基础收入保障</strong>: 强制广告确保稳定的广告收入基础</li>
+<li><strong>用户体验优化</strong>: 在自然节点插入强制广告，降低用户反感</li>
+<li><strong>价值驱动观看</strong>: 激励广告通过明确价值交换提升用户观看意愿</li>
+</ul>
+<p><strong>应用到其他游戏类型</strong>:</p>
+<ul>
+<li><strong>RPG游戏</strong>: 关卡结束广告 + 观看广告获得额外经验或者装备</li>
+<li><strong>模拟经营</strong>: 每日结算广告 + 观看广告加速建造时间</li>
+<li><strong>卡牌游戏</strong>: 对战结束广告 + 观看广告获得额外卡包</li>
+</ul>
+<h3 id="11-4-收集系统设计"><a href="#11-4-收集系统设计" class="headerlink" title="11.4 收集系统设计"></a>11.4 收集系统设计</h3><p><strong>长期目标设定</strong>:</p>
+<ul>
+<li>纯粹的分数追求容易产生疲劳</li>
+<li>可视化的收集进度提供持续动机</li>
+<li>收集完成的成就感强于分数突破</li>
+</ul>
+<p><strong>社交价值创造</strong>:</p>
+<ul>
+<li>收集品的展示满足炫耀需求</li>
+<li>精美的收集品具有分享价值</li>
+<li>收集进度可以激发朋友间的竞争，提高社交传播率</li>
+</ul>
+<h2 id="12-优缺点分析"><a href="#12-优缺点分析" class="headerlink" title="12. 优缺点分析"></a>12. 优缺点分析</h2><h3 id="12-1-游戏优势分析"><a href="#12-1-游戏优势分析" class="headerlink" title="12.1 游戏优势分析"></a>12.1 游戏优势分析</h3><p><strong>核心玩法优势</strong>:</p>
+<ul>
+<li><strong>学习成本低</strong>: 拖拽放置的操作直观易懂，3秒内即可上手</li>
+<li><strong>策略深度适中</strong>: 多样化的关卡类型增加了策略层次，但不会过于复杂</li>
+<li><strong>无时间压力</strong>: 允许玩家充分思考，符合休闲游戏的放松定位</li>
+<li><strong>重玩价值高</strong>: 木块形状的随机性和双目标系统提供持续挑战</li>
+</ul>
+<p><strong>视觉设计优势</strong>:</p>
+<ul>
+<li><strong>色彩搭配科学</strong>: 暖色木块与冷色背景形成视觉对比，层次分明</li>
+<li><strong>视觉反馈及时</strong>: 消除、收集等操作都有明确的视觉反馈</li>
+</ul>
+<p><strong>系统设计优势</strong>:</p>
+<ul>
+<li><strong>双模式互补</strong>: 经典模式和闯关模式满足不同用户需求</li>
+<li><strong>闯关节奏精准</strong>: 心理学层面的节奏控制，平衡挑战与成就感</li>
+<li><strong>收集系统完善</strong>: 长期目标明确，进度可视化程度高</li>
+<li><strong>商业化自然</strong>: 广告插入点设计合理，不破坏游戏体验</li>
+</ul>
+<p><strong>技术实现优势</strong>:</p>
+<ul>
+<li><strong>性能要求低</strong>: 2D渲染，适配范围广，包容低端设备</li>
+<li><strong>网络依赖小</strong>: 核心玩法可离线进行，降低网络环境影响</li>
+<li><strong>数据统计完善</strong>: 关键指标监控到位，支持精细化运营</li>
+</ul>
+<h3 id="12-2-游戏劣势分析"><a href="#12-2-游戏劣势分析" class="headerlink" title="12.2 游戏劣势分析"></a>12.2 游戏劣势分析</h3><p><strong>玩法深度限制</strong>:</p>
+<ul>
+<li><strong>策略天花板</strong>: 虽有多样化关卡类型，但整体策略深度仍有限</li>
+<li><strong>长期新鲜感</strong>: 木块形状和网格布局的变化有限，可能产生疲劳</li>
+<li><strong>技能成长感弱</strong>: 玩家技能提升空间相对有限，缺乏明显的成长曲线</li>
+<li><strong>社交元素缺失</strong>: 缺乏排行榜、好友对战等社交功能</li>
+</ul>
+<p><strong>内容更新挑战</strong>:</p>
+<ul>
+<li><strong>主题包依赖</strong>: 新内容主要依赖新主题包，创新空间相对局限</li>
+<li><strong>关卡设计难度</strong>: 需要精准控制难度，例如每关的苹果分布，设计难度曲线合理</li>
+<li><strong>玩法创新瓶颈</strong>: 在现有框架下难以引入颠覆性的新玩法</li>
+</ul>
+<p><strong>用户留存风险</strong>:</p>
+<ul>
+<li><strong>中期留存挑战</strong>: 完成几个主题包后，用户可能失去继续游戏的动力</li>
+<li><strong>付费转化有限</strong>: IAA模式下，付费点相对有限，ARPU提升空间不大</li>
+<li><strong>竞品压力</strong>: 同类游戏众多，差异化优势可能被快速模仿</li>
+</ul>
+<p><strong>技术架构局限</strong>:</p>
+<ul>
+<li><strong>扩展性约束</strong>: 8×8网格的固定框架限制了玩法扩展可能性</li>
+<li><strong>AI难度调节</strong>: 缺乏智能难度调节系统，无法个性化匹配玩家水平</li>
+<li><strong>数据分析深度</strong>: 虽有基础统计，但缺乏深度的用户行为分析</li>
+</ul>
+<h3 id="12-3-市场风险评估"><a href="#12-3-市场风险评估" class="headerlink" title="12.3 市场风险评估"></a>12.3 市场风险评估</h3><p><strong>竞争环境风险</strong>:</p>
+<ul>
+<li><strong>红海市场</strong>: 休闲益智游戏市场竞争激烈，获客成本持续上升</li>
+<li><strong>大厂入局</strong>: 头部厂商可能推出类似产品，凭借资源优势快速占领市场</li>
+<li><strong>创新门槛</strong>: 核心玩法相对简单，容易被竞品模仿和超越</li>
+<li><strong>用户注意力分散</strong>: 新兴游戏类型可能分流目标用户群体</li>
+</ul>
+<p><strong>商业模式风险</strong>:</p>
+<ul>
+<li><strong>广告收入波动</strong>: IAA收入受广告市场波动影响较大</li>
+<li><strong>用户获取成本</strong>: 买量成本上升可能压缩利润空间</li>
+<li><strong>生命周期管理</strong>: 需要持续内容更新维持用户活跃度</li>
+<li><strong>政策监管</strong>: 广告政策变化可能影响变现效率</li>
+</ul>
+<h2 id="13-优化设计建议"><a href="#13-优化设计建议" class="headerlink" title="13. 优化设计建议"></a>13. 优化设计建议</h2><h3 id="13-1-核心玩法优化建议"><a href="#13-1-核心玩法优化建议" class="headerlink" title="13.1 核心玩法优化建议"></a>13.1 核心玩法优化建议</h3><p><strong>策略深度提升</strong>:</p>
+<ul>
+<li><p><strong>引入特殊木块</strong>: 设计带有特殊效果的木块（如炸弹块、彩虹块）</p>
+<ul>
+<li>炸弹块：放置后可消除周围3×3区域</li>
+<li>彩虹块：可以适配任何颜色，增加放置灵活性</li>
+<li>磁铁块：可以吸引附近的苹果，改变收集策略</li>
+</ul>
+</li>
+<li><p><strong>动态网格系统</strong>:</p>
+<ul>
+<li>引入可变网格大小（6×6到12×12），根据关卡调整</li>
+<li>添加障碍格子和奖励格子，增加布局复杂性</li>
+<li>设计旋转网格或移动网格的特殊关卡</li>
+</ul>
+</li>
+<li><p><strong>多层次目标系统</strong>:</p>
+<ul>
+<li>主目标：分数达标 + 苹果收集</li>
+<li>次目标：限定步数内完成、使用特定木块等</li>
+<li>隐藏目标：连击次数、完美清屏等成就系统</li>
+</ul>
+</li>
+</ul>
+<p><strong>物理系统扩展</strong>:</p>
+<ul>
+<li><strong>重力方向变化</strong>: 某些关卡中重力方向可以改变（左、右、上）</li>
+<li><strong>液体物理</strong>: 引入”果汁”元素，需要通过特定路径引导流动</li>
+</ul>
+<h3 id="13-2-用户体验优化建议"><a href="#13-2-用户体验优化建议" class="headerlink" title="13.2 用户体验优化建议"></a>13.2 用户体验优化建议</h3><p><strong>个性化难度系统</strong>:</p>
+<ul>
+<li><strong>AI难度调节</strong>: 根据玩家表现动态调整木块形状复杂度</li>
+<li><strong>失败保护机制</strong>: 连续失败后提供简化版木块组合</li>
+<li><strong>技能匹配系统</strong>: 为不同水平玩家推荐合适的关卡类型</li>
+</ul>
+<p><strong>成就与收集扩展</strong>:</p>
+<ul>
+<li><p><strong>多维度成就系统</strong>:</p>
+<ul>
+<li>技巧成就：连击、完美清屏、单步高分等</li>
+<li>收集成就：完成主题包、收集特殊道具等</li>
+<li>探索成就：尝试新玩法、解锁隐藏内容等</li>
+</ul>
+</li>
+<li><p><strong>皮肤与定制系统</strong>:</p>
+<ul>
+<li>木块皮肤：不同材质和风格的木块外观</li>
+<li>网格主题：配合拼图主题的网格背景</li>
+<li>音效包：不同风格的音效和背景音乐</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-3-内容更新策略建议"><a href="#13-3-内容更新策略建议" class="headerlink" title="13.3 内容更新策略建议"></a>13.3 内容更新策略建议</h3><p><strong>主题包多样化</strong>:</p>
+<ul>
+<li><strong>季节主题</strong>: 春夏秋冬四季轮换，配合节日活动</li>
+<li><strong>文化主题</strong>: 不同国家和地区的文化风景（日本樱花、埃及金字塔等）</li>
+<li><strong>幻想主题</strong>: 科幻、魔法、童话等非现实主题</li>
+<li><strong>IP联动</strong>: 与知名IP合作，推出联名主题包（成本较高）</li>
+</ul>
+<p><strong>关卡类型创新</strong>:</p>
+<ul>
+<li><strong>限时挑战</strong>: 特定时间内完成关卡，增加紧张感</li>
+<li><strong>无限模式</strong>: 类似经典模式但是存在特殊规则的变体</li>
+<li><strong>解谜模式</strong>: 预设布局，玩家需要找到唯一解法</li>
+<li><strong>竞速模式</strong>: 与其他玩家实时比拼完成速度</li>
+</ul>
+<p><strong>活动系统设计</strong>:</p>
+<ul>
+<li><strong>每日挑战</strong>: 每天更新的特殊关卡，完成获得独特奖励</li>
+<li><strong>周末活动</strong>: 双倍奖励、限时道具、特殊主题等</li>
+<li><strong>赛季系统</strong>: 类似通行证的赛季奖励机制</li>
+<li><strong>节日活动</strong>: 结合现实节日的限时内容和奖励</li>
+</ul>
+<h3 id="13-4-商业化优化建议"><a href="#13-4-商业化优化建议" class="headerlink" title="13.4 商业化优化建议"></a>13.4 商业化优化建议</h3><p><strong>付费点优化</strong>:</p>
+<ul>
+<li><p><strong>订阅服务升级</strong>:</p>
+<ul>
+<li>高级订阅：无广告 + 每日道具包 + 独家皮肤</li>
+<li>主题包订阅：提前体验新主题 + 独家内容</li>
+<li>进度加速：关卡跳过、拼图快速解锁等</li>
+</ul>
+</li>
+<li><p><strong>道具系统完善</strong>:</p>
+<ul>
+<li>预览道具：提前查看下一组木块</li>
+<li>重排道具：重新生成当前木块组合</li>
+<li>救援道具：失败时的复活机会</li>
+</ul>
+</li>
+</ul>
+<p><strong>广告体验优化</strong>:</p>
+<ul>
+<li><strong>原生广告集成</strong>: 将广告内容自然融入游戏场景</li>
+<li><strong>奖励广告多样化</strong>: 不同类型的奖励对应不同长度的广告</li>
+<li><strong>广告频率智能控制</strong>: 根据用户行为调整广告展示频率</li>
+<li><strong>广告内容个性化</strong>: 基于用户偏好推送相关广告内容</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3%E6%A1%88/" class="category-chain-item">游戏拆解案</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3/" class="print-no-link">#游戏拆解</a>
+      
+        <a href="/tags/%E8%B6%85%E4%BC%91%E9%97%B2%E6%B8%B8%E6%88%8F/" class="print-no-link">#超休闲游戏</a>
+      
+        <a href="/tags/%E6%B5%B7%E5%A4%96%E6%B8%B8%E6%88%8F/" class="print-no-link">#海外游戏</a>
+      
+        <a href="/tags/IAA%E6%B8%B8%E6%88%8F/" class="print-no-link">#IAA游戏</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Woodoku Blast 游戏拆解报告</div>
+      <div>https://xinshi102.github.io/2025/01/20/游戏拆解案/woodoku-blast/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>信使</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/01/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3%E6%A1%88/Hexa-sort%E6%B8%B8%E6%88%8F%E6%B7%B1%E5%BA%A6%E6%8B%86%E8%A7%A3%E6%8A%A5%E5%91%8A/" title="Hexa Sort 3D 游戏深度拆解报告">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexa Sort 3D 游戏深度拆解报告</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/12/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%8F%90%E5%8D%87/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%A1%88%E5%86%99%E4%BD%9C/" title="游戏策划案写作指南">
+                        <span class="hidden-mobile">游戏策划案写作指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      xinshi--fluid
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
